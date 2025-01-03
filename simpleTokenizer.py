@@ -1,6 +1,8 @@
 # Simple Tokenizer
 # importing modules
-import re
+import re # regular expression
+import tiktoken # BPE implementations
+import importlib # metadata of BPE
 
 # Opening the file
 with open("/home/akash/Downloads/the-verdict.txt","r",encoding="utf-8") as f :
@@ -57,3 +59,13 @@ token_ids = tokenizer.encode(new_text)
 print(token_ids)
 normal_text = tokenizer.decode(token_ids)
 print(normal_text)
+
+# BPE tokens encodings
+# BPE is also Sub-word tokenization
+# BPE tokenization from GPT-2
+tokenizer = tiktoken.get_encoding("gpt2")
+bpe_text = (
+    "Hello, do you like tea? <|endoftext|> In the sunlight terraces""of someunknownPlaces."
+)
+integers = tokenizer.encode(bpe_text, allowed_special={"<|endoftext|>"})
+print(integers)

@@ -5,6 +5,7 @@ import spacy
 nlp = spacy.blank("en")
 
 # text to be processed
+# change the text as per your requirements
 text = "My email is : akashboro111@gmail.com. And my friends email is : mpratim32@gmail.com.\
     And another friends email is : prakash@gmail.com"
 doc = nlp(text)
